@@ -48,9 +48,9 @@
     - 6.6.3. queue_enqueue
     - 6.6.4. queue_dequeue
     - 6.6.5. queue_ peek, queue_size
-- 6.7. Queue Example: Event Handling
-6.8. Questions and Answers
-6.9. Related Topics
+  - 6.7. Queue Example: Event Handling
+  - 6.8. Questions and Answers
+  - 6.9. Related Topics
 7. Sets
 7.1. Description of Sets
 7.1.1. Definitions
