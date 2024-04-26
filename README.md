@@ -171,124 +171,124 @@
   - 11.5. Graph Example: Topological Sorting
 
 ## Algorithms
-12. Sorting and Searching
-12.1. Description of Insertion Sort
-12.2. Interface for Insertion Sort
-12.3. Implementation and Analysis of Insertion Sort
-12.4. Description of Quicksort
-12.5. Interface for Quicksort
-12.6. Implementation and Analysis of Quicksort
-12.7. Quicksort Example: Directory Listings
-12.8. Description of Merge Sort
-12.9. Interface for Merge Sort
-12.10. Implementation and Analysis of Merge Sort
-12.11. Description of Counting Sort
-12.12. Interface for Counting Sort
-12.13. Implementation and Analysis of Counting Sort
-12.14. Description of Radix Sort
-12.15. Interface for Radix Sort
-12.16. Implementation and Analysis of Radix Sort
-12.17. Description of Binary Search
-12.18. Interface for Binary Search
-12.19. Implementation and Analysis of Binary Search
-12.20. Binary Search Example: Spell Checking
-12.21. Questions and Answers
-12.22. Related Topics
-13. Numerical Methods
-13.1. Description of Polynomial Interpolation
-13.1.1. Constructing an Interpolating Polynomial
-13.1.2. Evaluating an Interpolating Polynomial
-13.2. Interface for Polynomial Interpolation
-13.3. Implementation and Analysis of Polynomial Interpolation
-13.4. Description of Least-Squares Estimation
-13.5. Interface for Least-Squares Estimation
-13.6. Implementation and Analysis of Least-Squares Estimation
-13.7. Description of the Solution of Equations
-13.7.1. Finding Roots with Newton’s Method
-13.7.2. Computing the Derivative of a Polynomial
-13.7.3. Understanding the First and Second Derivative
-13.7.4. Selecting an Initial Point for Newton’s Method
-13.7.5. How Newton’s Method Works
-13.8. Interface for the Solution of Equations
-13.9. Implementation and Analysis of the Solution of Equations
-13.10. Questions and Answers
-13.11. Related Topics
-14. Data Compression
-14.1. Description of Bit Operations
-14.2. Interface for Bit Operations
-14.3. Implementation and Analysis of Bit Operations
-14.3.1. bit_ get
-14.3.2. bit_set
-14.3.3. bit_xor
-14.3.4. bit_rot_left
-14.4. Description of Huffman Coding
-14.4.1. Entropy and Minimum Redundancy
-14.4.2. Building a Huffman Tree
-14.4.3. Compressing and Uncompressing Data
-14.4.4. Effectiveness of Huffman Coding
-14.5. Interface for Huffman Coding
-14.6. Implementation and Analysis of Huffman Coding
-14.6.1. huffman_compress
-14.6.2. huffman_uncompress
-14.7. Huffman Coding Example: Optimized Networking
-14.8. Description of LZ77
-14.8.1. Maintaining a Dictionary of Phrases
-14.8.2. Compressing and Uncompressing Data
-14.8.3. Effectiveness of LZ77
-14.9. Interface for LZ77
-14.10. Implementation and Analysis of LZ77
-14.10.1. lz77_compress
-14.10.2. lz77_uncompress
-14.11. Questions and Answers
-14.12. Related Topics
-15. Data Encryption
-15.1. Description of DES
-15.1.1. Computing Subkeys
-15.1.2. Enciphering and Deciphering Data Blocks
-15.2. Interface for DES
-15.3. Implementation and Analysis of DES
-15.3.1. des_encipher
-15.3.2. des_decipher
-15.4. DES Example: Block Cipher Modes
-15.5. Description of RSA
-15.5.1. Computing Public and Private Keys
-15.5.2. Enciphering and Deciphering Data Blocks
-15.6. Interface for RSA
-15.7. Implementation and Analysis of RSA
-15.7.1. rsa_encipher
-15.7.2. rsa_decipher
-15.8. Questions and Answers
-15.9. Related Topics
-16. Graph Algorithms
-16.1. Description of Minimum Spanning Trees
-16.1.1. Prim’s Algorithm
-16.2. Interface for Minimum Spanning Trees
-16.3. Implementation and Analysis of Minimum Spanning Trees
-16.4. Description of Shortest Paths
-16.4.1. Dijkstra’s Algorithm
-16.5. Interface for Shortest Paths
-16.6. Implementation and Analysis of Shortest Paths
-16.7. Shortest Paths Example: Routing Tables
-16.8. Description of the Traveling-Salesman Problem
-16.8.1. Applying the Nearest-Neighbor Heuristic
-16.9. Interface for the Traveling-Salesman Problem
-16.10. Implementation and Analysis of the Traveling-Salesman Problem
-16.11. Questions and Answers
-16.12. Related Topics
-17. Geometric Algorithms
-17.1. Description of Testing Whether Line Segments Intersect
-17.1.1. Standard Test for Intersecting Line Segments
-17.1.2. Computer Test for Intersecting Line Segments
-17.2. Interface for Testing Whether Line Segments Intersect
-17.3. Implementation and Analysis of Testing Whether Line Segments Intersect
-17.4. Description of Convex Hulls
-17.4.1. Jarvis’s March
-17.5. Interface for Convex Hulls
-17.6. Implementation and Analysis of Convex Hulls
-17.7. Description of Arc Length on Spherical Surfaces
-17.7.1. Rectilinear and Spherical Coordinates
-17.7.2. Converting Between Coordinate Systems
-17.7.3. Computing the Length of an Arc
-17.8. Interface for Arc Length on Spherical Surfaces
-17.9. Implementation and Analysis of Arc Length on Spherical Surfaces
-17.10. Arc Length Example: Approximating Distances on Earth
+- 12. Sorting and Searching
+- 12.1. Description of Insertion Sort
+- 12.2. Interface for Insertion Sort
+- 12.3. Implementation and Analysis of Insertion Sort
+- 12.4. Description of Quicksort
+- 12.5. Interface for Quicksort
+- 12.6. Implementation and Analysis of Quicksort
+- 12.7. Quicksort Example: Directory Listings
+- 12.8. Description of Merge Sort
+- 12.9. Interface for Merge Sort
+- 12.10. Implementation and Analysis of Merge Sort
+- 12.11. Description of Counting Sort
+- 12.12. Interface for Counting Sort
+- 12.13. Implementation and Analysis of Counting Sort
+- 12.14. Description of Radix Sort
+- 12.15. Interface for Radix Sort
+- 12.16. Implementation and Analysis of Radix Sort
+- 12.17. Description of Binary Search
+- 12.18. Interface for Binary Search
+- 12.19. Implementation and Analysis of Binary Search
+- 12.20. Binary Search Example: Spell Checking
+- 12.21. Questions and Answers
+- 12.22. Related Topics
+- 13. Numerical Methods
+- 13.1. Description of Polynomial Interpolation
+- 13.1.1. Constructing an Interpolating Polynomial
+- 13.1.2. Evaluating an Interpolating Polynomial
+- 13.2. Interface for Polynomial Interpolation
+- 13.3. Implementation and Analysis of Polynomial Interpolation
+- 13.4. Description of Least-Squares Estimation
+- 13.5. Interface for Least-Squares Estimation
+- 13.6. Implementation and Analysis of Least-Squares Estimation
+- 13.7. Description of the Solution of Equations
+- 13.7.1. Finding Roots with Newton’s Method
+- 13.7.2. Computing the Derivative of a Polynomial
+- 13.7.3. Understanding the First and Second Derivative
+- 13.7.4. Selecting an Initial Point for Newton’s Method
+- 13.7.5. How Newton’s Method Works
+- 13.8. Interface for the Solution of Equations
+- 13.9. Implementation and Analysis of the Solution of Equations
+- 13.10. Questions and Answers
+- 13.11. Related Topics
+- 14. Data Compression
+- 14.1. Description of Bit Operations
+- 14.2. Interface for Bit Operations
+- 14.3. Implementation and Analysis of Bit Operations
+- 14.3.1. bit_ get
+- 14.3.2. bit_set
+- 14.3.3. bit_xor
+- 14.3.4. bit_rot_left
+- 14.4. Description of Huffman Coding
+- 14.4.1. Entropy and Minimum Redundancy
+- 14.4.2. Building a Huffman Tree
+- 14.4.3. Compressing and Uncompressing Data
+- 14.4.4. Effectiveness of Huffman Coding
+- 14.5. Interface for Huffman Coding
+- 14.6. Implementation and Analysis of Huffman Coding
+- 14.6.1. huffman_compress
+- 14.6.2. huffman_uncompress
+- 14.7. Huffman Coding Example: Optimized Networking
+- 14.8. Description of LZ77
+- 14.8.1. Maintaining a Dictionary of Phrases
+- 14.8.2. Compressing and Uncompressing Data
+- 14.8.3. Effectiveness of LZ77
+- 14.9. Interface for LZ77
+- 14.10. Implementation and Analysis of LZ77
+- 14.10.1. lz77_compress
+- 14.10.2. lz77_uncompress
+- 14.11. Questions and Answers
+- 14.12. Related Topics
+- 15. Data Encryption
+- 15.1. Description of DES
+- 15.1.1. Computing Subkeys
+- 15.1.2. Enciphering and Deciphering Data Blocks
+- 15.2. Interface for DES
+- 15.3. Implementation and Analysis of DES
+- 15.3.1. des_encipher
+- 15.3.2. des_decipher
+- 15.4. DES Example: Block Cipher Modes
+- 15.5. Description of RSA
+- 15.5.1. Computing Public and Private Keys
+- 15.5.2. Enciphering and Deciphering Data Blocks
+- 15.6. Interface for RSA
+- 15.7. Implementation and Analysis of RSA
+- 15.7.1. rsa_encipher
+- 15.7.2. rsa_decipher
+- 15.8. Questions and Answers
+- 15.9. Related Topics
+- 16. Graph Algorithms
+- 16.1. Description of Minimum Spanning Trees
+- 16.1.1. Prim’s Algorithm
+- 16.2. Interface for Minimum Spanning Trees
+- 16.3. Implementation and Analysis of Minimum Spanning Trees
+- 16.4. Description of Shortest Paths
+- 16.4.1. Dijkstra’s Algorithm
+- 16.5. Interface for Shortest Paths
+- 16.6. Implementation and Analysis of Shortest Paths
+- 16.7. Shortest Paths Example: Routing Tables
+- 16.8. Description of the Traveling-Salesman Problem
+- 16.8.1. Applying the Nearest-Neighbor Heuristic
+- 16.9. Interface for the Traveling-Salesman Problem
+- 16.10. Implementation and Analysis of the Traveling-Salesman Problem
+- 16.11. Questions and Answers
+- 16.12. Related Topics
+- 17. Geometric Algorithms
+- 17.1. Description of Testing Whether Line Segments Intersect
+- 17.1.1. Standard Test for Intersecting Line Segments
+- 17.1.2. Computer Test for Intersecting Line Segments
+- 17.2. Interface for Testing Whether Line Segments Intersect
+- 17.3. Implementation and Analysis of Testing Whether Line Segments Intersect
+- 17.4. Description of Convex Hulls
+- 17.4.1. Jarvis’s March
+- 17.5. Interface for Convex Hulls
+- 17.6. Implementation and Analysis of Convex Hulls
+- 17.7. Description of Arc Length on Spherical Surfaces
+- 17.7.1. Rectilinear and Spherical Coordinates
+- 17.7.2. Converting Between Coordinate Systems
+- 17.7.3. Computing the Length of an Arc
+- 17.8. Interface for Arc Length on Spherical Surfaces
+- 17.9. Implementation and Analysis of Arc Length on Spherical Surfaces
+- 17.10. Arc Length Example: Approximating Distances on Earth
