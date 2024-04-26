@@ -136,39 +136,39 @@
     - 9.7.7. bistree_size
   - 9.8. Questions and Answers
   - 9.9. Related Topics
-10. Heaps and Priority Queues
-10.1. Description of Heaps
-10.2. Interface for Heaps
-10.3. Implementation and Analysis of Heaps
-10.3.1. heap_init
-10.3.2. heap_destroy
-10.3.3. heap_insert
-10.3.4. heap_extract
-10.3.5. heap_size
-10.4. Description of Priority Queues
-10.5. Interface for Priority Queues
-10.6. Implementation and Analysis of Priority Queues
-10.7. Priority Queue Example: Parcel Sorting
-10.8. Questions and Answers
-10.9. Related Topics
-11. Graphs
-11.1. Description of Graphs
-11.1.1. Search Methods
-11.1.1.1. Breadth-first search
-11.1.1.2. Depth-first search
-11.2. Interface for Graphs
-11.3. Implementation and Analysis of Graphs
-11.3.1. graph_init
-11.3.2. graph_destroy
-11.3.3. graph_ins_vertex
-11.3.4. graph_ins_edge
-11.3.5. graph_rem_vertex
-11.3.6. graph_rem_edge
-11.3.7. graph_adjlist
-11.3.8. graph_is_adjacent
-11.3.9. graph_adjlists, graph_vcount, graph_ecount
-11.4. Graph Example: Counting Network Hops
-11.5. Graph Example: Topological Sorting
+- 10. Heaps and Priority Queues
+  - 10.1. Description of Heaps
+  - 10.2. Interface for Heaps
+  - 10.3. Implementation and Analysis of Heaps
+    - 10.3.1. heap_init
+    - 10.3.2. heap_destroy
+    - 10.3.3. heap_insert
+    - 10.3.4. heap_extract
+    - 10.3.5. heap_size
+  - 10.4. Description of Priority Queues
+  - 10.5. Interface for Priority Queues
+  - 10.6. Implementation and Analysis of Priority Queues
+  - 10.7. Priority Queue Example: Parcel Sorting
+  - 10.8. Questions and Answers
+  - 10.9. Related Topics
+- 11. Graphs
+  - 11.1. Description of Graphs
+    - 11.1.1. Search Methods
+    - 11.1.1.1. Breadth-first search
+    - 11.1.1.2. Depth-first search
+  - 11.2. Interface for Graphs
+  - 11.3. Implementation and Analysis of Graphs
+    - 11.3.1. graph_init
+    - 11.3.2. graph_destroy
+    - 11.3.3. graph_ins_vertex
+    - 11.3.4. graph_ins_edge
+    - 11.3.5. graph_rem_vertex
+    - 11.3.6. graph_rem_edge
+    - 11.3.7. graph_adjlist
+    - 11.3.8. graph_is_adjacent
+    - 11.3.9. graph_adjlists, graph_vcount, graph_ecount
+  - 11.4. Graph Example: Counting Network Hops
+  - 11.5. Graph Example: Topological Sorting
 
 ## Algorithms
 12. Sorting and Searching
