@@ -1,54 +1,54 @@
 # mastering_algorithm_c
 
 ## Data Structures
-5. Linked Lists
-5.1. Description of Linked Lists
-5.2. Interface for Linked Lists
-5.3. Implementation and Analysis of Linked Lists
-5.3.1. list_init
-5.3.2. list_destroy
-5.3.3. list_ins_next
-5.3.4. list_rem_next
-5.3.5. list_size, list_head, list_tail, list_is_tail,list_data, and list_next
-5.4. Linked List Example: Frame Management
-5.5. Description of Doubly-Linked Lists
-5.6. Interface for Doubly-Linked Lists
-5.7. Implementation and Analysis of Doubly Linked Lists
-5.7.1. dlist_init
-5.7.2. dlist_destroy
-5.7.3. dlist_ins_next
-5.7.4. dlist_ins_ prev
-5.7.5. dlist_remove
-5.7.6. dlist_size, dlist_head, dlist_tail, dlist_is_head, dlist_is_tail, dlist_data, dlist_next, and dlist_ prev
-5.8. Description of Circular Lists
-5.9. Interface for Circular Lists
-5.10. Implementation and Analysis of Circular Lists
-5.10.1. clist_init
-5.10.2. clist_destroy
-5.10.3. clist_ins_next
-5.10.4. clist_rem_next
-5.10.5. clist_size, clist_head, clist_data, and clist_next
-5.11. Circular List Example: Second-Chance Page Replacement
-5.12. Questions and Answers
-5.13. Related Topics
-6. Stacks and Queues
-6.1. Description of Stacks
-6.2. Interface for Stacks
-6.3. Implementation and Analysis of Stacks
-6.3.1. stack_init
-6.3.2. stack_destroy
-6.3.3. stack_ push
-6.3.4. stack_ pop
-6.3.5. stack_ peek, stack_size
-6.4. Description of Queues
-6.5. Interface for Queues
-6.6. Implementation and Analysis of Queues
-6.6.1. queue_init
-6.6.2. queue_destroy
-6.6.3. queue_enqueue
-6.6.4. queue_dequeue
-6.6.5. queue_ peek, queue_size
-6.7. Queue Example: Event Handling
+- 5. Linked Lists
+  - 5.1. Description of Linked Lists
+  - 5.2. Interface for Linked Lists
+  - 5.3. Implementation and Analysis of Linked Lists
+    - 5.3.1. list_init
+    - 5.3.2. list_destroy
+    - 5.3.3. list_ins_next
+    - 5.3.4. list_rem_next
+    - 5.3.5. list_size, list_head, list_tail, list_is_tail,list_data, and list_next
+  - 5.4. Linked List Example: Frame Management
+  - 5.5. Description of Doubly-Linked Lists
+  - 5.6. Interface for Doubly-Linked Lists
+  - 5.7. Implementation and Analysis of Doubly Linked Lists
+    - 5.7.1. dlist_init
+    - 5.7.2. dlist_destroy
+    - 5.7.3. dlist_ins_next
+    - 5.7.4. dlist_ins_ prev
+    - 5.7.5. dlist_remove
+    - 5.7.6. dlist_size, dlist_head, dlist_tail, dlist_is_head, dlist_is_tail, dlist_data, dlist_next, and dlist_ prev
+  - 5.8. Description of Circular Lists
+  - 5.9. Interface for Circular Lists
+  - 5.10. Implementation and Analysis of Circular Lists
+    - 5.10.1. clist_init
+    - 5.10.2. clist_destroy
+    - 5.10.3. clist_ins_next
+    - 5.10.4. clist_rem_next
+    - 5.10.5. clist_size, clist_head, clist_data, and clist_next
+  - 5.11. Circular List Example: Second-Chance Page Replacement
+  - 5.12. Questions and Answers
+  - 5.13. Related Topics
+- 6. Stacks and Queues
+  - 6.1. Description of Stacks
+  - 6.2. Interface for Stacks
+  - 6.3. Implementation and Analysis of Stacks
+    - 6.3.1. stack_init
+    - 6.3.2. stack_destroy
+    - 6.3.3. stack_ push
+    - 6.3.4. stack_ pop
+    - 6.3.5. stack_ peek, stack_size
+  - 6.4. Description of Queues
+  - 6.5. Interface for Queues
+  - 6.6. Implementation and Analysis of Queues
+    - 6.6.1. queue_init
+    - 6.6.2. queue_destroy
+    - 6.6.3. queue_enqueue
+    - 6.6.4. queue_dequeue
+    - 6.6.5. queue_ peek, queue_size
+- 6.7. Queue Example: Event Handling
 6.8. Questions and Answers
 6.9. Related Topics
 7. Sets
