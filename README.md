@@ -1,5 +1,5 @@
 # mastering_algorithm_c
-
+- https://resources.oreilly.com/examples/9781565924536/tree/master
 ## Data Structures
 - 5. Linked Lists
   - 5.1. Description of Linked Lists
