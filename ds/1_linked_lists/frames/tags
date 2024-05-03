@@ -1,0 +1,37 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+BIN	Makefile	/^ BIN=$(BINFLAGS)$/;"	m
+BIN	Makefile	/^BIN=a.out$/;"	m
+BINFLAGS	Makefile	/^BINFLAGS?=$/;"	m
+CC	Makefile	/^CC=gcc$/;"	m
+CFLAGS	Makefile	/^CFLAGS=-Wall$/;"	m
+LIST_H	list.h	7;"	d
+List	list.h	/^} List;$/;"	t	typeref:struct:List_
+ListNode	list.h	/^} ListNode;$/;"	t	typeref:struct:ListNode_
+ListNode_	list.h	/^typedef struct ListNode_ {$/;"	s
+List_	list.h	/^typedef struct List_ {$/;"	s
+OBJ	Makefile	/^OBJ=$(SRC:.c=.o)$/;"	m
+SRC	Makefile	/^SRC=*.c$/;"	m
+_FRAMES_H	frames.h	6;"	d
+data	list.h	/^    void *data;$/;"	m	struct:ListNode_
+destroy	list.h	/^    void (*destroy) (void *data);$/;"	m	struct:List_
+head	list.h	/^    ListNode *head;$/;"	m	struct:List_
+list_data	list.h	41;"	d
+list_destroy	list.c	/^void list_destroy(List *list) {$/;"	f
+list_head	list.h	42;"	d
+list_init	list.c	/^void list_init(List *list, void (*destroy)(void *data)) {$/;"	f
+list_ins_next	list.c	/^int list_ins_next(List *list, ListNode *node, const void *data) {$/;"	f
+list_is_tail	list.h	39;"	d
+list_next	list.h	40;"	d
+list_rem_next	list.c	/^int list_rem_next(List *list, ListNode *node, void **data) {$/;"	f
+list_size	list.h	43;"	d
+main	frames.c	/^int main(void) {$/;"	f
+match	list.h	/^    int (*match) (const void *data1, const void *data2);$/;"	m	struct:List_
+next	list.h	/^    struct ListNode_ *next;$/;"	m	struct:ListNode_	typeref:struct:ListNode_::ListNode_
+print_list	list.c	/^static void print_list(const List *list){$/;"	f	file:
+size	list.h	/^    int size;$/;"	m	struct:List_
+tail	list.h	/^    ListNode *tail;$/;"	m	struct:List_

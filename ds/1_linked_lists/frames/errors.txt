@@ -1,0 +1,4 @@
+/usr/bin/ld: /tmp/ccaZk8zN.o: in function `main':
+/home/student/mastering_algorithm_c/ds/1_linked_lists/frames/frames.c:11: undefined reference to `alloc_frame'
+/usr/bin/ld: /home/student/mastering_algorithm_c/ds/1_linked_lists/frames/frames.c:18: undefined reference to `alloc_frame'
+collect2: error: ld returned 1 exit status
