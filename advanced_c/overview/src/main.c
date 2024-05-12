@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include "other.h"
-int main() {
+#include "../include/other.h"
+int main(void) {
     printf("The favorite number is %d\n", getFavoriteNumber());    
     return 0;
 }
