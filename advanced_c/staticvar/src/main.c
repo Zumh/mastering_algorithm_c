@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+// this include insert the static function code from other file 
+// so it act like a nother code.
 #include "static_fun.c"
 // this function prototype is automatically external
 // extern make it readable that's all and is none static function
@@ -24,6 +26,9 @@ int main() {
     }
 
     printf("Static function\n");
+    // because we use #include "static_fun.c" this function is inserted into the current file
+   // how ever when we start using .h header file we can't use this function
+   // because the function is static in other file
     static_fun();
 
     printf("None static to the function\n");
