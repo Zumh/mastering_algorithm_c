@@ -28,6 +28,9 @@ If you have to allocate a large number of struct instances
 You can improve the runtime and mem usage program by stant factor
 */
 
+#include <stdio.h>
+#include <stdlib.h>
+
 struct s {
     int arraySize;
 
