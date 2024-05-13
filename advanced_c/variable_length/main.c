@@ -11,6 +11,9 @@ int sum2d(int, int, int array[*][*]);
 printf("Variable length arrays are not supported.\n")
 exit(1)
 #endif
+// kernel is free of VLA
+// it slowere code and more fragile code
+// use dynamic allocation instead
 */
 int main(void) {
     // this is not dynamic allocation but it just another length size in fix size
