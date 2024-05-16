@@ -2,7 +2,7 @@
 //
 #ifndef QUEUE_H
 #define QUEUE_H
-	#include <stdlib.h>
+#include <stdlib.h>
 
 #include "../single/list.h"
 

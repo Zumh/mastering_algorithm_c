@@ -1,94 +1,88 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "../list.h"
+#include "../single/list.h"
+#include "queue.h"
 
-// print_list
-static void print_list(List *list){
-	ListElmt *element;
-	int *data, i;
 
-	// Display the linked list
+// print queue
+
+static void print_queue(const Queue *q) {
+	ListNode *node;
+
+	int *data, size, i;
+
+	// Display the queue
 	
-	fpritnf(stdout, "List size is %d\n", list_size(list));
+	fprintf(stdout, "Queue size is %d\n", size = queue_size(q));
 
 	i = 0;
 
-	element = list_head(list);
+	node = list_head(q);
 
-	while(list){
-		data = list_data(element);
-		fprintf(stdout, "list[%03d] = %d\n", i, *data);
+	while(i < size){
+		data = list_data(node);
+		fprintf(stdout, "queue[%03d] = %d\n", i , *data);
+		node = list_next(node);
 		i++;
-
-		if (list_is_tail(element)){
-			break;
-		} else {
-			element = list_next(element);
-		}
 	}
+
 	return;
 }
 
 
 // main
-int main(int argc, char **argv){
-	List list;
-	ListElmt *element = NULL;
+//
+int main(void){
+
+	Queue queue;
 
 	int *data, i;
 
-	// initialize the linked list
 
-	list_init(&list, free);
+	// Initialize the queue
+	queue_init(&queue, free);
 
-	// perform some linked list operations.
-	//
-	element = list_head(&list);
-
-	for(i = 10; i > 0; i--){
+	// Perform some queue operations.
+	for(i = 0; i < 10; i++){
 		if((data = (int *) malloc(sizeof(int))) == NULL){
 			return 1;
 		}
 
-		*data = i;
+		*data = i + 1;
 
-		if (list_ins_next(&list, NULL, data) != 0){
+		if (queue_enqueue(&queue, data) != 0){
 			return 1;
 		}
 	}
+	
+	print_queue(&queue);
 
-	print_list(&list);
 
-	element = list_head(&list);
-
-	for(i = 0; i < 7; i++){
-		element = list_next(element);
+	if((data = queue_peek(&queue)) != NULL){
+		fprintf(stdout, "Peeking at the head lement...Value=%03d\n", *data);
+	} else {
+		fprintf(stdout, "Peeking at the head element...Value=NULL\n");
 	}
 
-	data = list_data(element);
-	
-	fprintf(stdout, "Removing an element after the one containing %03d\n", *data);
+	print_queue(&queue);
+	fprintf(stdout, "Dequeuing all elements\n");
 
-	if (list_rem_next(&list, element, (void **)&data) != 0){
-		return 1;
+	while(queue_size(&queue) > 0){
+		if(queue_dequeue(&queue, (void **)&data) == 0){
+			free(data);
+		}
 	}
 
+	if((data = queue_peek(&queue)) != NULL){
+		fprintf(stdout, "Peeking at the head lement...Value=%03d\n", *data);
+	} else {
+		fprintf(stdout, "Peeking at the head element...Value=NULL\n");
+	}
 
-	print_list(&list);
-	
-	fprintf(stdout, "Inserting 011 at the tail of the list\n");
+	fprintf(stdout, "Destroying the queue\n");
+	// Destroy the queue
+	queue_destroy(&queue);
 
-	*data = 11;
-
-
-	// Destroy the linked list.
-	//
-	
-	fprintf(stdout, "Destroying the list\n");
-
-	list_destroy(&list);
-
-	
 	return 0;
 }
