@@ -1,13 +1,13 @@
 #include <stdlib.h>
 #include "cover.h"
-#include "list.h"
+#include "../single/list.h"
 #include "set.h"
 
 
 // cover
 int cover(Set *members, Set *subsets, Set *covering){
 	Set intersection;
-	Kset *subset;
+	KSet *subset;
 	ListNode *member, *max_member;
 	void *data;
 	int max_size;
@@ -17,12 +17,12 @@ int cover(Set *members, Set *subsets, Set *covering){
 	set_init(covering, subsets->match, NULL);
 
 	// Continue while there are noncovered members and candidate subsets.
-	while(set_size(members) > 0 && set_size(substes) > 0){
+	while(set_size(members) > 0 && set_size(subsets) > 0){
 	
 		// find the subset that covers the most members.
 		max_size = 0;
 
-		for(member = list_head(substes); member != NULL; member = list_next(member)){
+		for(member = list_head(subsets); member != NULL; member = list_next(member)){
 		
 			if (set_intersection(&intersection, &((KSet *) list_data(member))-> set, members) != 0){
 				return -1;
@@ -43,7 +43,7 @@ int cover(Set *members, Set *subsets, Set *covering){
 
 
 		// Insert the selected subset into the covering.
-		subset = (Kset *)list_data(max_member);
+		subset = (KSet *) list_data(max_member);
 
 		if(set_insert(covering, subset) != 0){
 			return -1;
@@ -53,7 +53,7 @@ int cover(Set *members, Set *subsets, Set *covering){
 		for (member = list_head(&((KSet *) list_data(max_member))->set); member != NULL; member = list_next(member)){
 			data = list_data(member);
 
-			if(sett_remove(members, (void**) &data) == 0 && members->destroy != NULL){
+			if(set_remove(members, (void**) &data) == 0 && members->destroy != NULL){
 			
 				members->destroy(data);
 			}

@@ -5,10 +5,10 @@
 #include "set.h"
 
 // Define a structure for subsets identified by a key.
-typedef struct Kset_ {
+typedef struct KSet_ {
 	void *key;
 	Set set;
-} Kset;
+} KSet;
 
 // Public Interface
 int cover(Set *members, Set *subsets, Set *covering);
