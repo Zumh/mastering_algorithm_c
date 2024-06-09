@@ -5,6 +5,10 @@
 
 // hashpjw
 /*
+https://en.wikipedia.org/wiki/PJW_hash_function#:~:text=PJW%20hash%20algorithm%20involves%20shifting,bits%20*%203%2F4)%20h
+
+    PJW hash algorithm involves shifting the previous hash and adding the current byte followed by moving the high bits
+
     this hash function process an input string ('key') and 
     computes an integer hash value based on it. The result is suitable for use in a hash table
     of size 'PRIME_TBLSIZ. The high-order bits are managed to prevent overflow and
