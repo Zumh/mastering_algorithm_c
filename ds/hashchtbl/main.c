@@ -11,6 +11,8 @@
 #define TBLSIZ 11
 
 // match_char
+// we use this generic match char function to compare two characters
+// pass it to the chained hash table public interface methods
 static int match_char(const void *char1, const void *char2){
     // Compare two characters.
 
@@ -18,6 +20,7 @@ static int match_char(const void *char1, const void *char2){
 }
 
 // h_char
+// we use this generic hash char function to hash a character within the table size
 static int h_char(const void *key){
 
     // Define a simplistic hash function.
@@ -33,6 +36,7 @@ static void print_table(const CHTbl*htbl){
     // Display the chained hash table
     fprintf(stdout, "Table size is %d\n", chtbl_size(htbl));
 
+    // Iterate through the table and display each bucket  
     for(int i = 0; i < TBLSIZ; i++){
         fprintf(stdout, "Bucket[%03d]=", i);
 
