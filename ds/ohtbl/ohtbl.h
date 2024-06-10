@@ -1,14 +1,14 @@
 // ohtbl.h
 #ifndef OHTBL_H
 #define OHTBL_H
-#inlcude <stdlib.h>
+#include <stdlib.h>
 
 // Define a structure for open-addressed hash tables.
 typedef struct OHTbl_{
     int positions; 
     void *vacated;
-    int (*h1)(const char *key);
-    int (*h2)(const char *key);
+    int (*h1)(const void *key);
+    int (*h2)(const void *key);
     int (*match)(const void *key1, const void *key2);
     void (*destroy)(void *data);
 
@@ -18,7 +18,7 @@ typedef struct OHTbl_{
 
 // Public Interface
 int ohtbl_init(OHTbl *htbl, int positions, 
-int (*h1)(const char *key), 
+int (*h1)(const void *key), 
 int (*h2)(const void *key), 
 int (*match)(const void *key1, const void *key2),
  void (*destroy)(void *data));

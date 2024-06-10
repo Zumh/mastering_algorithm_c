@@ -10,7 +10,7 @@
 static char vacated;
 
 int ohtbl_init(OHTbl *htbl, int positions, 
-int (*h1)(const char *key), 
+int (*h1)(const void *key), 
 int (*h2)(const void *key), 
 int (*match)(const void *key1, const void *key2),
  void (*destroy)(void *data)){
@@ -66,7 +66,7 @@ int ohtbl_insert(OHTbl *htbl, const void *data){
     int position = 0;
 
     // Do not exceed the number of positions in the table.
-    if (htbl->size == htbl->posiitons){
+    if (htbl->size == htbl->positions){
         return -1;
     }
 
@@ -77,7 +77,7 @@ int ohtbl_insert(OHTbl *htbl, const void *data){
     }
 
     // Use double hashing to hash the key.
-    for (int index = 0; index < htbl->positions, index++){
+    for (int index = 0; index < htbl->positions; index++){
         position = (htbl->h1(data) + (index * htbl->h2(data))) % htbl->positions;
 
         if (htbl->table[position] == NULL || htbl->table[position] == htbl->vacated){
@@ -97,7 +97,7 @@ int ohtbl_remove(OHTbl *htbl, void **data){
     for(int index = 0; index < htbl->positions; index++){
         position = (htbl->h1(*data) + (index * htbl->h2(*data))) % htbl->positions;
 
-        if (htbl->tabl[position] == NULL){
+        if (htbl->table[position] == NULL){
 
             // Return that the data was not found.
             return -1 ;
@@ -137,7 +137,7 @@ int ohtbl_lookup(const OHTbl *htbl, void **data){
             return 0;
         }
     }
-
+`
     // Return that the data was not found.
     return -1;
 }
