@@ -137,7 +137,7 @@ int ohtbl_lookup(const OHTbl *htbl, void **data){
             return 0;
         }
     }
-`
+
     // Return that the data was not found.
     return -1;
 }
