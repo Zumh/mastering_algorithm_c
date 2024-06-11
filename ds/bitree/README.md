@@ -1,5 +1,6 @@
 ## bitree compilation
 - gcc bitree.c main.c ../single/list.c -o bitree
+- traverse.c and traverse.h is generic bitree traverser example for postorder, preorder, inorder traversing.
 
 In the context of binary trees, tree traversal refers to the process of visiting each node in the tree exactly once in a specific order. There are three common types of depth-first traversal methods: inorder, postorder, and preorder traversal. Here's a detailed explanation of each:
 
