@@ -8,7 +8,7 @@
 
 typedef struct BiTreeNode_ {
     void *data;
-    struct BitTreeNode_ *left, *right;
+    struct BiTreeNode_ *left, *right;
 
 } BiTreeNode;
 
