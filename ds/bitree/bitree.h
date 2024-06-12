@@ -35,6 +35,7 @@ void bitree_rem_right(BiTree *tree, BiTreeNode *node);
 
 int bitree_merge(BiTree *merge, BiTree *left, BiTree *right, const void *data);
 
+void ensure_balanced(BiTree *tree, BiTreeNode **node, int *balanced);
 #define bitree_size(tree) ((tree)->size)
 
 #define bitree_root(tree) ((tree)->root)
