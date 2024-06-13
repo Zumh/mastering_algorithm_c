@@ -10,7 +10,14 @@
 // Define the size of strings
 #define STRSIZ  6
 
+
+void intialize_datas(char sarray[][STRSIZ]);
+
+void removing_nodes(BiTree *tree, char sarray[][STRSIZ], int word);
+
 int inserting_nodes(BiTree *tree, char sarray[][STRSIZ], int word);
+
+void initailize_traay(char tarray[][STRSIZ]);
 
 static void preorder_tree(const BiTreeNode *node){
     // Display the binary search tree rooted at the spcified node.
@@ -54,7 +61,7 @@ static int compare_str(const void *str1, const void *str2){
 
 typedef enum Words_ {hop, hat, tap, bat, tip, mop, mom, cat, zoo, wax, top, dip} Words;
 
-void intialize_datas(char sarray[][STRSIZ]);
+
 
 
 int main(int argc, char **argv){
@@ -79,7 +86,42 @@ int main(int argc, char **argv){
     if(inserting_nodes(&tree, sarray, top) == 1) return 1;
     if (inserting_nodes(&tree, sarray, cat) == 1) return 1;
     if (inserting_nodes(&tree, sarray, bat) == 1) return 1;
+
+    fprintf(stdout, "\n\nRemoving\n");
+    removing_nodes(&tree, sarray, tap);
+    removing_nodes(&tree, sarray, top);
+    removing_nodes(&tree, sarray, tip);
+    removing_nodes(&tree, sarray, hop);
+
+    fprintf(stdout, "\n\nInserting some nodes\n");
+
+    if (inserting_nodes(&tree, sarray, hop) == 1) return 1;
+    if (inserting_nodes(&tree, sarray, dip) == 1) return 1;
+
+    if(inserting_nodes(&tree, sarray, tap) == 1) return 1;
+    if (inserting_nodes(&tree, sarray, top) == 1) return 1;
+    if (inserting_nodes(&tree, sarray, tip) == 1) return 1;
+
+    fprintf(stdout, "\n\nInserting more nodes\n");
     
+    if (inserting_nodes(&tree, sarray, mom) == 1) return 1;
+    if (inserting_nodes(&tree, sarray, hat) == 1) return 1;
+
+    if(inserting_nodes(&tree, sarray, mop) == 1) return 1;
+    if (inserting_nodes(&tree, sarray, wax) == 1) return 1;
+    if (inserting_nodes(&tree, sarray, zoo) == 1) return 1;
+
+
+    // Removing nodes from the tree.
+    fprintf(stdout, "\n\nRemoving\n");
+    removing_nodes(&tree, sarray, wax);
+    removing_nodes(&tree, sarray, hop);
+
+    fprintf(stdout, "Looking up some nodes\n");
+
+    initailize_traay(tarray);
+    target = tarray[0];
+
 
     // Destroy the binary search tree.
 
@@ -89,6 +131,39 @@ int main(int argc, char **argv){
 
 
 
+}
+
+void lookup_nodes(BiTree *tree, char sarray[][STRSIZ], int index){
+    target = tarray[index];
+
+    if (bistree_lookup(tree, (void **) &target) != -1){
+        fprintf(stdout, "Could not find %s\n", sarray[word]);
+    } else {
+        fprintf(stdout, "Found %s\n", target);
+    }
+}
+
+void removing_nodes(BiTree *tree, char sarray[][STRSIZ], int word){
+     fprintf(stdout, "Removing %s \n", sarray[word]);
+
+     if (bistree_remove(tree, &sarray[word]) != 0){
+         fprintf(stdout, "Could not find %s\n", sarray[word]);
+     } else {
+        fprintf(stdout, "Tree size is %d\n", bistree_size(tree));
+        fprintf(stdout, "(Preorder traversal)\n");
+        preorder_tree(bitree_root(tree));
+     }
+}
+
+void initailize_traay(char tarray[][STRSIZ]){
+    strcpy(tarray[0], "top");
+
+    strcpy(tarray[1], "hop");
+    strcpy(tarray[2], "wax");
+
+    strcpy(tarray[3], "hat");
+    strcpy(tarray[4], "xxx");
+    
 }
 
 void intialize_datas(char sarray[][STRSIZ]){
@@ -107,7 +182,7 @@ void intialize_datas(char sarray[][STRSIZ]){
 }
 
 int inserting_nodes(BiTree *tree, char sarray[][STRSIZ], int word){
-    
+    fprintf(stdout, "Inserting %s\n", sarray[word]);
     if(bistree_insert(tree, sarray[word]) != 0){
         return 1;
     }
