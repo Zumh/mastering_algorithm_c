@@ -59,6 +59,49 @@ static void rotate_left(BiTreeNode **node){
     return ;
 }
 
+// rotate_right
+static void rotate_right(BiTreeNode **node){
+    BiTreeNode *right, *grandchild;
+
+    right = bitree_right(*node);
+
+    if(((AvlNode *) bitree_data(right))->factor == AVL_RGT_HEAVY){
+        // Perform an RR rotation.
+        bitree_right(*node) = bitree_left(right);
+        bitree_left(right) = *node;
+        ((AvlNode *)bitree_data(*node))->factor = AVL_BALANCED;
+        ((AvlNode *)bitree_data(right))->factor = AVL_BALANCED;
+
+    } else {
+        // Perofrm an RL rotation
+        grandchild = bitree_left(right);
+        bitree_left(right) = bitree_right(grandchild);
+        bitree_right(grandchild) = right;
+        bitree_right(*node) = bitree_left(grandchild);
+        bitree_left(grandchild) = *node;
+
+        switch (((AvlNode *) bitree_data(grandchild))->factor){
+            case AVL_LFT_HEAVY:
+            ((AvlNode *) bitree_data(*node))->factor = AVL_BALANCED;
+            ((AvlNode *) bitree_data(right))->factor = AVL_RGT_HEAVY;
+            break;
+            case AVL_BALANCED:
+            ((AvlNode *) bitree_data(*node))->factor = AVL_BALANCED;
+            ((AvlNode *) bitree_data(right))->factor = AVL_RGT_HEAVY;
+            break;
+            case AVL_RGT_HEAVY:
+            ((AvlNode *) bitree_data(*node))->factor = AVL_BALANCED;
+            ((AvlNode *) bitree_data(right))->factor = AVL_RGT_HEAVY;
+            break;
+        }
+
+        ((AvlNode *) bitree_data(grandchild))->factor = AVL_BALANCED;
+        *node = grandchild;
+    }
+
+    return;
+}
+
 // destroy_left
 static void destroy_left(BisTree *tree, BiTreeNode *node){
     BiTreeNode **position;
@@ -193,7 +236,27 @@ static int insert(BiTree *tree, BiTreeNode **node, const void *data, int *balanc
 
             // Ensure that the tree remains balanced
 
-            ensure_balanced(tree, node, balanced);
+            //ensure_balanced(node, balanced);
+            if (!(*balanced)){
+                AvlNode *avl_node = (AvlNode *)bitree_data(*node);
+                switch(avl_node->factor){
+                    case AVL_LFT_HEAVY:
+                    rotate_left(node);
+                    *balanced = 1;
+
+                    break;
+                    case AVL_BALANCED:
+                    avl_node->factor = AVL_LFT_HEAVY;
+                    break;
+                    case AVL_RGT_HEAVY:
+                    avl_node->factor = AVL_BALANCED;
+                    *balanced = 1;
+
+
+                
+                }
+            }
+
         } // if(cmpval < 0) 
         else if (cmpval > 0){
             // Move to the right
@@ -218,8 +281,26 @@ static int insert(BiTree *tree, BiTreeNode **node, const void *data, int *balanc
             } //   if(bitree_is_eob(bitree_right(*node)))
 
             // Ensure that the tree remains balanced 
-            ensure_balanced(tree, node, balanced);
+            //ensure_balanced(node, balanced);
+            if (!(*balanced)){
+                AvlNode *avl_node = (AvlNode *)bitree_data(*node);
+                switch(avl_node->factor){
+                    case AVL_LFT_HEAVY:
+                    avl_node->factor = AVL_BALANCED;
+                    *balanced = 1;
 
+                    break;
+                    case AVL_BALANCED:
+                    avl_node->factor = AVL_LFT_HEAVY;
+                    break;
+                    case AVL_RGT_HEAVY:
+                    rotate_right(node);
+                    *balanced = 1;
+
+
+                
+                }
+            }
 
 
         } // if(cmpval > 0)
@@ -253,72 +334,6 @@ static int insert(BiTree *tree, BiTreeNode **node, const void *data, int *balanc
 
     return 0;
 }
-
-// ensure_balanced
-void ensure_balanced(BiTree *tree, BiTreeNode **node, int *balanced){
-    // Ensure that the tree remains balanced
-
-    if (!(*balanced)){
-        switch(((AvlNode *) bitree_data(*node))->factor){
-            case AVL_LFT_HEAVY:
-            rotate_left(node);
-            *balanced = 1;
-
-            break;
-            case AVL_BALANCED:
-            ((AvlNode *) bitree_data(*node))->factor = AVL_LFT_HEAVY;
-            break;
-            case AVL_RGT_HEAVY:
-            ((AvlNode *) bitree_data(*node))->factor = AVL_BALANCED;
-            *balanced = 1;
-        
-        }
-    }
-}
-
-// rotate_right
-static void rotate_right(BiTreeNode **node){
-    BiTreeNode *right, *grandchild;
-
-    right = bitree_right(*node);
-
-    if(((AvlNode *) bitree_data(right))->factor == AVL_RGT_HEAVY){
-        // Perform an RR rotation.
-        bitree_right(*node) = bitree_left(right);
-        bitree_left(right) = *node;
-        ((AvlNode *)bitree_data(*node))->factor = AVL_BALANCED;
-        ((AvlNode *)bitree_data(right))->factor = AVL_BALANCED;
-
-    } else {
-        // Perofrm an RL rotation
-        grandchild = bitree_left(right);
-        bitree_left(right) = bitree_right(grandchild);
-        bitree_right(grandchild) = right;
-        bitree_right(*node) = bitree_left(grandchild);
-        bitree_left(grandchild) = *node;
-
-        switch (((AvlNode *) bitree_data(grandchild))->factor){
-            case AVL_LFT_HEAVY:
-            ((AvlNode *) bitree_data(*node))->factor = AVL_BALANCED;
-            ((AvlNode *) bitree_data(right))->factor = AVL_RGT_HEAVY;
-            break;
-            case AVL_BALANCED:
-            ((AvlNode *) bitree_data(*node))->factor = AVL_BALANCED;
-            ((AvlNode *) bitree_data(right))->factor = AVL_RGT_HEAVY;
-            break;
-            case AVL_RGT_HEAVY:
-            ((AvlNode *) bitree_data(*node))->factor = AVL_BALANCED;
-            ((AvlNode *) bitree_data(right))->factor = AVL_RGT_HEAVY;
-            break;
-        }
-
-        ((AvlNode *) bitree_data(grandchild))->factor = AVL_BALANCED;
-        *node = grandchild;
-    }
-
-    return;
-}
-
 
 // hides
 
