@@ -1,3 +1,6 @@
+
+## Compile with
+- gcc bistree.c main.c ../single/list.c ../bitree/bitree.c -g -o bistree
 ## Left rotation
 Sure, I can help illustrate the `rotate_left` function with diagrams for both LL and LR rotations.
 
