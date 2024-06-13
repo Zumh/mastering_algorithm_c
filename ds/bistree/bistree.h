@@ -25,7 +25,6 @@ typedef BiTree BisTree;
 // Public Interface
 
 void bistree_init(BisTree *tree, int(*compare)(const void *key1, const void *key2), void (*destroy)(void *data));
-void ensure_balanced( BiTreeNode **node, int *balanced);
 void bistree_destroy(BisTree *tree);
 
 int bistree_insert(BisTree *tree, const void *data);
