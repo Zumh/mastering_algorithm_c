@@ -119,7 +119,7 @@ int main(int argc, char **argv){
     removing_nodes(&tree, sarray, wax);
     removing_nodes(&tree, sarray, hop);
 
-    fprintf(stdout, "Looking up some nodes\n");
+    fprintf(stdout, "\n\nLooking up some nodes\n");
 
     initailize_traay(tarray);
 

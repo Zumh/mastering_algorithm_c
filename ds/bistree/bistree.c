@@ -377,7 +377,7 @@ static int lookup(BisTree *tree, BiTreeNode *node, void **data){
     cmpval = tree->compare(*data, ((AvlNode*) bitree_data(node))->data);
     if(cmpval < 0){
         // Move to the left
-        retval = lookup(tree, bitree_left(node), bitree_left(node)->data);
+        retval = lookup(tree, bitree_left(node), data);
     } else if (cmpval > 0){
         // Move to the right
         retval = lookup(tree, bitree_right(node), data);
