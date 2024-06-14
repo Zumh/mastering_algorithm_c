@@ -134,7 +134,7 @@ int main(int argc, char **argv){
 
     // Destroy the binary search tree.
 
-    fprintf(stdout, "Destroying the tree\n");
+    fprintf(stdout, "\n\nDestroying the tree\n");
     bistree_destroy(&tree);
     return 0;
 
@@ -177,6 +177,7 @@ void initailize_traay(char tarray[][STRSIZ]){
 }
 
 void intialize_datas(char sarray[][STRSIZ]){
+    
     strcpy(sarray[hop], "hop");
     strcpy(sarray[hat], "hat");
     strcpy(sarray[tap], "tap");
