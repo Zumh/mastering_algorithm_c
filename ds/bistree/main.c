@@ -19,6 +19,8 @@ int inserting_nodes(BiTree *tree, char sarray[][STRSIZ], int word);
 
 void initailize_traay(char tarray[][STRSIZ]);
 
+void lookup_nodes(BiTree *tree,  char tarray[][STRSIZ], int index);
+
 static void preorder_tree(const BiTreeNode *node){
     // Display the binary search tree rooted at the spcified node.
 
@@ -120,7 +122,14 @@ int main(int argc, char **argv){
     fprintf(stdout, "Looking up some nodes\n");
 
     initailize_traay(tarray);
-    target = tarray[0];
+
+    lookup_nodes(&tree, tarray, 0);
+    lookup_nodes(&tree, tarray, 1);
+    lookup_nodes(&tree, tarray, 2);
+    lookup_nodes(&tree, tarray, 3);
+    lookup_nodes(&tree, tarray, 4);
+
+
 
 
     // Destroy the binary search tree.
@@ -133,14 +142,15 @@ int main(int argc, char **argv){
 
 }
 
-void lookup_nodes(BiTree *tree, char sarray[][STRSIZ], int index){
-    target = tarray[index];
+void lookup_nodes(BiTree *tree,  char tarray[][STRSIZ], int index){
+    char *target = tarray[index];
 
-    if (bistree_lookup(tree, (void **) &target) != -1){
-        fprintf(stdout, "Could not find %s\n", sarray[word]);
+    if (bistree_lookup(tree, (void **) &target) == -1){
+        fprintf(stdout, "Could not find %s\n", target);
     } else {
         fprintf(stdout, "Found %s\n", target);
     }
+
 }
 
 void removing_nodes(BiTree *tree, char sarray[][STRSIZ], int word){
