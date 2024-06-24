@@ -16,7 +16,7 @@ https://en.wikipedia.org/wiki/PJW_hash_function#:~:text=PJW%20hash%20algorithm%2
 */
 int hashpjw(const void *key){
     const char *ptr;
-    int val;
+    unsigned int val;
 
     // Hash the key by performing a number of bit operations on it.
     // hold the resulting hash value.
@@ -28,7 +28,7 @@ int hashpjw(const void *key){
     // iverates over each character of the input string until the null terminator
     while( *ptr != '\0'){
 
-        int tmp;
+        unsigned int tmp;
         // update val by performing left shifted by 4 bits to the value and added character
         // compute hash value
         val = (val << 4) + (*ptr);
