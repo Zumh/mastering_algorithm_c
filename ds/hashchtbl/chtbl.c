@@ -1,4 +1,4 @@
-// chtbl.c
+// hashtable.c
 
 #include <stdlib.h>
 #include <string.h>
@@ -8,7 +8,7 @@
 
 #include "chtbl.h"
 
-// chtbl_init
+// hashtable_init
 /*
 This public interface function initialize the chained hash table.
 - Allocating memory for the specified number of buckets.
@@ -16,7 +16,7 @@ Inittializing each bucket as a list.
 Storing the provided hash, match, and destroy function pointers.
 Setting the initial size of the hash table to zero.
 */
-int chtbl_init(CHTbl *htbl, int buckets, int (*h) (const void *key), int (*match)(const void *key1, const void *key2), void (*destroy)(void *data)){
+int hashtable_init(HashTable *htbl, int buckets, int (*h) (const void *key), int (*match)(const void *key1, const void *key2), void (*destroy)(void *data)){
     
     // Allocate space for the hash table.
     if ((htbl->table = (List *) malloc(buckets * sizeof(List))) == NULL){
@@ -45,8 +45,8 @@ int chtbl_init(CHTbl *htbl, int buckets, int (*h) (const void *key), int (*match
 }
 
 
-// chtbl_destroy
-void chtbl_destroy(CHTbl *htbl) {
+// hashtable_destroy
+void hashtable_destroy(HashTable *htbl) {
 
     // Destroy each bucket.
     for(int index = 0; index < htbl->buckets; index++) {
@@ -59,12 +59,12 @@ void chtbl_destroy(CHTbl *htbl) {
 
     // No operations are allowed now, but clear the structure as a precaustion.
 
-    memset(htbl, 0, sizeof(CHTbl));
+    memset(htbl, 0, sizeof(HashTable));
 
     return;
 }
 
-// chtbl_insert
+// hashtable_insert
 /*
 the function insert data in a bucket list
 Checks if the data is already in the hash table using the lookup function.
@@ -73,7 +73,7 @@ Inserts the data into the computed bucket using `list_ins_next`.
 If the insertion is successful, it increments the size of the hash table.
 Returns the result of the insertion operation.
 */
-int chtbl_insert(CHTbl *htbl, const void *data){
+int hashtable_insert(HashTable *htbl, const void *data){
     void *temp;
     int bucket, retval;
 
@@ -81,7 +81,7 @@ int chtbl_insert(CHTbl *htbl, const void *data){
 
     temp = (void *) data;
 
-    if (chtbl_lookup(htbl, &temp) == 0){
+    if (hashtable_lookup(htbl, &temp) == 0){
         return 1;
     }
 
@@ -97,11 +97,11 @@ int chtbl_insert(CHTbl *htbl, const void *data){
     return retval;
 }
 
-// chtbl_remove
+// hashtable_remove
 /*
 Removes the data from the hash table.
  */
-int chtbl_remove(CHTbl *htbl, void **data) {
+int hashtable_remove(HashTable *htbl, void **data) {
     ListNode *element, *prev;
     int bucket;
 
@@ -137,13 +137,13 @@ int chtbl_remove(CHTbl *htbl, void **data) {
 
 }
 
-// chtbl_lookup
+// hashtable_lookup
 /*
 Calculate the key of the data
 Search for the data in the hash table
 Returns 0 if the data is found and -1 if not found
 */
-int chtbl_lookup(const CHTbl *htbl, void **data){
+int hashtable_lookup(const HashTable *htbl, void **data){
     ListNode *element;
     int bucket;
 

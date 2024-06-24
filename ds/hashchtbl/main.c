@@ -1,6 +1,6 @@
 // Filename: main.c
 // Description: Illustrates using a chaned hash table (see Chapter 8).
-// execute:  gcc -o chtbl chtbl.c main.c ../single/list.c
+// execute:  gcc -o hashtable hashtable.c main.c ../single/list.c
 
 #include <stdio.h>
 #include "chtbl.h"
@@ -29,12 +29,12 @@ static int h_char(const void *key){
 }
 
 // print_table
-static void print_table(const CHTbl*htbl){
+static void print_table(const HashTable*htbl){
     ListNode *node;
     int i;
 
     // Display the chained hash table
-    fprintf(stdout, "Table size is %d\n", chtbl_size(htbl));
+    fprintf(stdout, "Table size is %d\n", hashtable_size(htbl));
 
     // Iterate through the table and display each bucket  
     for(int i = 0; i < TBLSIZ; i++){
@@ -52,14 +52,14 @@ static void print_table(const CHTbl*htbl){
 // main
 
 int main(int argc, char **argv) {
-    CHTbl htbl;
+    HashTable htbl;
     char *data, c;
 
     int retval, i;
 
     // Iinitialize the chaned hash table.
 
-    if (chtbl_init(&htbl, TBLSIZ, h_char, match_char, free) !=0){
+    if (hashtable_init(&htbl, TBLSIZ, h_char, match_char, free) !=0){
 
         return 1;
     }
@@ -76,7 +76,7 @@ int main(int argc, char **argv) {
         *data = ((5 + (index * 6)) %23 ) + 'A';
 
 
-        if (chtbl_insert(&htbl, data) != 0){
+        if (hashtable_insert(&htbl, data) != 0){
 
             return 1;
         }
@@ -94,7 +94,7 @@ int main(int argc, char **argv) {
 
         *data = ((3 + (i * 4)) % 23) + 'a';
 
-        if (chtbl_insert(&htbl, data) != 0) {
+        if (hashtable_insert(&htbl, data) != 0) {
             return 1;
         }
 
@@ -107,7 +107,7 @@ int main(int argc, char **argv) {
 
     *data = 'd';
 
-    if ((retval = chtbl_insert(&htbl, data)) != 0){
+    if ((retval = hashtable_insert(&htbl, data)) != 0){
         free(data);
     }
 
@@ -119,7 +119,7 @@ int main(int argc, char **argv) {
 
     *data = 'G';
 
-    if ((retval = chtbl_insert(&htbl, data)) != 0){
+    if ((retval = hashtable_insert(&htbl, data)) != 0){
         free(data);
     }
 
@@ -130,21 +130,21 @@ int main(int argc, char **argv) {
     c = 'd';
     data = &c;
 
-    if (chtbl_remove(&htbl, (void **)&data) == 0){
+    if (hashtable_remove(&htbl, (void **)&data) == 0){
         free(data);
     }
 
     c = 'G';
     data = &c;
 
-    if (chtbl_remove(&htbl, (void **)&data) == 0){
+    if (hashtable_remove(&htbl, (void **)&data) == 0){
         free(data);
     }
 
     c = 'S';
     data = &c;
 
-    if (chtbl_remove(&htbl, (void **)&data) == 0){
+    if (hashtable_remove(&htbl, (void **)&data) == 0){
         free(data);
     }
 
@@ -157,7 +157,7 @@ int main(int argc, char **argv) {
 
     *data = 'd';
 
-    if ((retval = chtbl_insert(&htbl, data)) != 0){
+    if ((retval = hashtable_insert(&htbl, data)) != 0){
         free(data);
     }
 
@@ -169,7 +169,7 @@ int main(int argc, char **argv) {
 
     *data = 'G';
 
-    if((retval = chtbl_insert(&htbl, data)) != 0){
+    if((retval = hashtable_insert(&htbl, data)) != 0){
         free(data);
     }
 
@@ -185,7 +185,7 @@ int main(int argc, char **argv) {
 
     *data = 'X';
 
-    if (chtbl_insert(&htbl, data) != 0){
+    if (hashtable_insert(&htbl, data) != 0){
         return 1;
     }
 
@@ -196,7 +196,7 @@ int main(int argc, char **argv) {
 
     *data = 'Y';
 
-    if (chtbl_insert(&htbl, data) != 0){
+    if (hashtable_insert(&htbl, data) != 0){
         return 1;
     }
 
@@ -205,7 +205,7 @@ int main(int argc, char **argv) {
     c = 'X';
     data = &c;
 
-    if (chtbl_lookup(&htbl, (void **)&data) == 0){
+    if (hashtable_lookup(&htbl, (void **)&data) == 0){
         fprintf(stdout, "Found an occurence of X\n");
     } else {
         fprintf(stdout, "Did not find an occurence of X\n");
@@ -214,7 +214,7 @@ int main(int argc, char **argv) {
     c = 'Z';
     data = &c;
 
-    if (chtbl_lookup(&htbl, (void **)&data) == 0){
+    if (hashtable_lookup(&htbl, (void **)&data) == 0){
         fprintf(stdout, "Found an occurence of Z\n");
     } else {
         fprintf(stdout, "Did not find an occurence of Z\n");
@@ -226,6 +226,6 @@ int main(int argc, char **argv) {
     // Destroy the chained hash table.
 
     fprintf(stdout, "Destroying the hash table\n");
-    chtbl_destroy(&htbl);
+    hashtable_destroy(&htbl);
     return 0;
 }
