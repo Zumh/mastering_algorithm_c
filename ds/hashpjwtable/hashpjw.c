@@ -62,7 +62,7 @@ main(void){
     // Print the hash values for the example keys
 
     for(int i = 0; i < num_keys; i++){
-        // 
+        // iterate thtrough each key and calculate their hash value 
         fprintf(stdout, "hash for '%s' : %d\n", keys[i], hashpjw(keys[i]));
 
     }

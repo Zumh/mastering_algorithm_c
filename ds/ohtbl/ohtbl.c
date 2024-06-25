@@ -1,4 +1,5 @@
 // file ohtbl.c
+// double hash formula ensure that all positions in the table are visited before any position is visited twice.
 
 #include <stdlib.h>
 #include <string.h>
@@ -78,7 +79,9 @@ int ohtbl_insert(OHTbl *htbl, const void *data){
 
     // Use double hashing to hash the key.
     for (int index = 0; index < htbl->positions; index++){
-        position = (htbl->h1(data) + (index * htbl->h2(data))) % htbl->positions;
+	 // using double hashing formula to ensure that
+        //elements are distributed in a uniform and random manner.
+	position = (htbl->h1(data) + (index * htbl->h2(data))) % htbl->positions;
 
         if (htbl->table[position] == NULL || htbl->table[position] == htbl->vacated){
             // Insert the data into the table.
