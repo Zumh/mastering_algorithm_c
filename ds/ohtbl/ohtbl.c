@@ -1,5 +1,6 @@
 // file ohtbl.c
 // double hash formula ensure that all positions in the table are visited before any position is visited twice.
+// the second hash or h2 is for skipping randomly over positions in the table to avoid a collision.
 
 #include <stdlib.h>
 #include <string.h>
