@@ -88,58 +88,18 @@ heap_init(&heap, compare_int, NULL);
 *  Perform some heap operations.                                             *
 *                                                                            *
 *****************************************************************************/
+int values[] = {5, 10, 20, 1, 25, 22, 9};
 
-i = 0;
+for (int index = 0; index < sizeof(values) / sizeof(values[0]); index++) {
+	intval[index] = values[index];
+	fprintf(stdout, "Inserting %03d\n", intval[index]);
+	if (heap_insert(&heap, &intval[index]) != 0){
+		fprintf(stderr, "Error Inserting %03d into the heap\n", intval[index]);
+		return 1;
+	}
 
-intval[i] = 5;
-fprintf(stdout, "Inserting %03d\n", intval[i]);
-if (heap_insert(&heap, &intval[i]) != 0)
-   return 1;
-print_heap(&heap);
-i++;
-
-intval[i] = 10;
-fprintf(stdout, "Inserting %03d\n", intval[i]);
-if (heap_insert(&heap, &intval[i]) != 0)
-   return 1;
-print_heap(&heap);
-i++;
-
-intval[i] = 20;
-fprintf(stdout, "Inserting %03d\n", intval[i]);
-if (heap_insert(&heap, &intval[i]) != 0)
-   return 1;
-print_heap(&heap);
-i++;
-
-intval[i] = 1;
-fprintf(stdout, "Inserting %03d\n", intval[i]);
-if (heap_insert(&heap, &intval[i]) != 0)
-   return 1;
-print_heap(&heap);
-i++;
-
-intval[i] = 25;
-fprintf(stdout, "Inserting %03d\n", intval[i]);
-if (heap_insert(&heap, &intval[i]) != 0)
-   return 1;
-print_heap(&heap);
-i++;
-
-intval[i] = 22;
-fprintf(stdout, "Inserting %03d\n", intval[i]);
-if (heap_insert(&heap, &intval[i]) != 0)
-   return 1;
-print_heap(&heap);
-i++;
-
-intval[i] = 9;
-fprintf(stdout, "Inserting %03d\n", intval[i]);
-if (heap_insert(&heap, &intval[i]) != 0)
-   return 1;
-print_heap(&heap);
-i++;
-
+	print_heap(&heap);
+}
 while (heap_size(&heap) > 0) {
 
    if (heap_extract(&heap, (void **)&data) != 0)
