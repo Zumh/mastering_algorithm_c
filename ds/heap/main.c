@@ -18,22 +18,20 @@
 *                                                                            *
 *****************************************************************************/
 
-static void print_heap(Heap *heap) {
+void print_heap(Heap *heap) {
 
-int                i;
 
-/*****************************************************************************
-*                                                                            *
-*  Display the heap using in level order.                                    *
-*                                                                            *
-*****************************************************************************/
+	/*****************************************************************************
+	*                                                                            *
+	*  Display the heap using in level order.                                    *
+	*                                                                            *
+	*****************************************************************************/
 
-fprintf(stdout, "Heap size is %d\n", heap_size(heap));
+	fprintf(stdout, "Heap size is %d\n", heap_size(heap));
 
-for (i = 0; i < heap_size(heap); i++)
-   fprintf(stdout, "Node=%03d\n", *(int *)heap->tree[i]);
-
-return;
+	for (int index = 0; index < heap_size(heap); index++){
+	   fprintf(stdout, "Node=%03d\n", *(int *)heap->tree[index]);
+	}
 
 }
 
@@ -43,20 +41,20 @@ return;
 *                                                                            *
 *****************************************************************************/
 
-static int compare_int(const void *int1, const void *int2) {
+int compare_int(const void *int1, const void *int2) {
 
-/*****************************************************************************
-*                                                                            *
-*  Compare two integers.                                                     *
-*                                                                            *
-*****************************************************************************/
+	/*****************************************************************************
+	*                                                                            *
+	*  Compare two integers.                                                     *
+	*                                                                            *
+	*****************************************************************************/
 
-if (*(const int *)int1 > *(const int *)int2)
-   return 1;
-else if (*(const int *)int1 < *(const int *)int2)
-   return -1;
-else
-   return 0;
+	if (*(const int *)int1 > *(const int *)int2)
+	   return 1;
+	else if (*(const int *)int1 < *(const int *)int2)
+	   return -1;
+	else
+	   return 0;
 
 }
 
@@ -68,57 +66,62 @@ else
 
 int main(int argc, char **argv) {
 
-Heap               heap;
+	Heap               heap;
 
-void               *data;
+	void               *data;
 
-int                intval[30],
-                   i;
+	int                intval[30]; 
 
-/*****************************************************************************
-*                                                                            *
-*  Initialize the heap.                                                      *
-*                                                                            *
-*****************************************************************************/
+	/*****************************************************************************
+	*                                                                            *
+	*  Initialize the heap.                                                      *
+	*                                                                            *
+	*****************************************************************************/
 
-heap_init(&heap, compare_int, NULL);
+	heap_init(&heap, compare_int, NULL);
 
-/*****************************************************************************
-*                                                                            *
-*  Perform some heap operations.                                             *
-*                                                                            *
-*****************************************************************************/
-int values[] = {5, 10, 20, 1, 25, 22, 9};
+	/*****************************************************************************
+	*                                                                            *
+	*  Perform some heap operations.                                             *
+	*                                                                            *
+	*****************************************************************************/
+	int values[] = {5, 10, 20, 1, 25, 22, 9};
 
-for (int index = 0; index < sizeof(values) / sizeof(values[0]); index++) {
-	intval[index] = values[index];
-	fprintf(stdout, "Inserting %03d\n", intval[index]);
-	if (heap_insert(&heap, &intval[index]) != 0){
-		fprintf(stderr, "Error Inserting %03d into the heap\n", intval[index]);
-		return 1;
+	for (int index = 0; index < sizeof(values) / sizeof(values[0]); index++) {
+		intval[index] = values[index];
+		fprintf(stdout, "Inserting %03d\n", intval[index]);
+		if (heap_insert(&heap, &intval[index]) != 0){
+			fprintf(stderr, "Error Inserting %03d into the heap\n", intval[index]);
+			return 1;
+		}
+
+		print_heap(&heap);
 	}
 
-	print_heap(&heap);
-}
-while (heap_size(&heap) > 0) {
+	/*****************************************************************************
+	*                                                                            *
+	*  Extract the heap.                                                         *
+	*                                                                            *
+	*****************************************************************************/
+	while (heap_size(&heap) > 0) {
 
-   if (heap_extract(&heap, (void **)&data) != 0)
-      return 1;
-   fprintf(stdout, "Extracting %03d\n", *(int *)data);
-   print_heap(&heap);
+	   if (heap_extract(&heap, &data) != 0)
+	      return 1;
+	   fprintf(stdout, "Extracting %03d\n", *(int *)data);
+	   print_heap(&heap);
 
-}
+	}
 
-/*****************************************************************************
-*                                                                            *
-*  Destroy the heap.                                                         *
-*                                                                            *
-*****************************************************************************/
+	/*****************************************************************************
+	*                                                                            *
+	*  Destroy the heap.                                                         *
+	*                                                                            *
+	*****************************************************************************/
 
-fprintf(stdout, "Destroying the heap\n");
-heap_destroy(&heap);
+	fprintf(stdout, "Destroying the heap\n");
+	heap_destroy(&heap);
 
-return 0;
+	return 0;
 
 }
 
