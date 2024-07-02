@@ -4,8 +4,8 @@
 
 #define MAX 100
 
-int heap[MAX];
-int size = 0;
+//int heap[MAX];
+//int size = 0;
 
 
 typedef struct Heap_{
@@ -14,7 +14,16 @@ typedef struct Heap_{
 	size_t elementSize;
 	int (*compare)(const void *key1, const void *key2);
 	void (*swap)(void *key1,  void *key2, size_t size);
+	void (*destructor)(void *element);	
 } Heap;
+
+void init(Heap *heap, size_t elementSize, int (*compare)(const void *key1, const void *key2), void (*swap)(void *key1,  void *key2, size_t size)){
+	
+	heap->size = 0;
+	heap->elementSize = elementSize;
+	heap->compare = compare;
+	heap->swap = swap;
+}
 void genericSwap(void *a, void *b, size_t size) {
 	void *temp = malloc(size);
 	if (temp == NULL) {
@@ -113,15 +122,18 @@ int compareInt(const void *a, const void *b){
 void printInt(const void *a){
 	printf("%d", *(int *) a);
 }
-
+// destroy the heap
+void destroyHeap(Heap *heap){
+	for( int index = 0; index < heap->size; index++) {
+		free(heap->data[index]);
+	}
+}
+	
 int main() {
 
 	Heap heap;
-	heap.size = 0;
-	heap.elementSize = sizeof(int);
-	heap.compare = compareInt;
-	heap.swap = genericSwap;
 
+	init(&heap, sizeof(int), compareInt, genericSwap);
 	int values[] = {10, 20, 15, 30, 40};	
 	int values_size = sizeof(values) / sizeof(values[0]);
 	for (int index = 0; index < values_size; index++) {
@@ -141,9 +153,8 @@ int main() {
 	displayHeap(&heap, printInt);
 	
 	// Clean up the heap
-	for( int index = 0; index < heap.size; index++) {
-		free(heap.data[index]);
-	}
+	destroyHeap(&heap);	
+	fprintf(stdout, "Heap destroyed\n");
 	return 0;
 }
 
