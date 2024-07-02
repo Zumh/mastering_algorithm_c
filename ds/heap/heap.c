@@ -101,7 +101,6 @@ void heap_destroy(Heap *heap) {
 
 int heap_insert(Heap *heap, const void *data) {
 
-	void               *temp;
 
 	int                ipos,
 			   ppos;
@@ -111,19 +110,16 @@ int heap_insert(Heap *heap, const void *data) {
 	*  Allocate storage for the node.                                            *
 	*                                                                            *
 	*****************************************************************************/
-
-	if ((temp = (void **)realloc(heap->tree, (heap_size(heap) + 1) * sizeof
-	   (void *))) == NULL) {
+	void *temp = realloc(heap->tree, (heap_size(heap) + 1) * sizeof
+	   (void *));
+	if (temp == NULL) {
 
 	   return -1;
 
-	   }
-
-	else {
-
-	   heap->tree = temp;
-
 	}
+	
+	heap->tree = temp;
+
 
 	/*****************************************************************************
 	*                                                                            *
@@ -199,8 +195,9 @@ int heap_extract(Heap *heap, void **data) {
 	*                                                                            *
 	*****************************************************************************/
 
-	if (heap_size(heap) == 0)
+	if (heap_size(heap) == 0){
 	   return -1;
+	}
 
 	/*****************************************************************************
 	*                                                                            *
@@ -219,19 +216,16 @@ int heap_extract(Heap *heap, void **data) {
 	save = heap->tree[heap_size(heap) - 1];
 
 	if (heap_size(heap) - 1 > 0) {
-
-	   if ((temp = (void **)realloc(heap->tree, (heap_size(heap) - 1) * sizeof
-	      (void *))) == NULL) {
+		temp = realloc(heap->tree, (heap_size(heap) - 1) * sizeof(void **)); 
+	   if (temp == NULL) {
 
 	      return -1;
 
-	      }
-
-	   else {
-
-	      heap->tree = temp;
-
 	   }
+
+	   heap->tree = temp;
+
+	   
 
 	   /**************************************************************************
 	   *                                                                         *
@@ -286,19 +280,15 @@ int heap_extract(Heap *heap, void **data) {
 
 	   lpos = heap_left(ipos);
 	   rpos = heap_right(ipos);
+	   mpos = ipos;
 
 	   if (lpos < heap_size(heap) && heap->compare(heap->tree[lpos], heap->
 	      tree[ipos]) > 0) {
 
 	      mpos = lpos;
 
-	      }
-
-	   else {
-
-	      mpos = ipos;
-
 	   }
+
 
 	   if (rpos < heap_size(heap) && heap->compare(heap->tree[rpos], heap->
 	      tree[mpos]) > 0) {

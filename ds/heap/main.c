@@ -85,7 +85,8 @@ int main(int argc, char **argv) {
 	*  Perform some heap operations.                                             *
 	*                                                                            *
 	*****************************************************************************/
-	int values[] = {5, 10, 20, 1, 25, 22, 9};
+	//int values[] = {5, 10, 20, 1, 25, 22, 9};
+	int values[] = {5, 10};
 
 	for (int index = 0; index < sizeof(values) / sizeof(values[0]); index++) {
 		intval[index] = values[index];
